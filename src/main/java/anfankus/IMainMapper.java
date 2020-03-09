@@ -32,6 +32,9 @@ public interface IMainMapper {
   @Select("select * from exam where userid=#{userid}")
   List<Exam> getExamMetaListByUserid(String userid);
 
+  @Select("select * from exam")
+  List<Exam> getAllExamMetaList();
+
   @Select("select * from user")
   List<User> getUserList();
 

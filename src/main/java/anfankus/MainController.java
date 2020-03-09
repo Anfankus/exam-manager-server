@@ -80,7 +80,12 @@ public class MainController {
 
   @GetMapping("/exam-meta-list")
   public List<Exam> ExamMetaListRouting(@RequestParam("userid") String userid) {
-    return mainMapper.getExamMetaListByUserid(userid);
+    if (userid == null || userid.equals("")) {
+      return mainMapper.getAllExamMetaList();
+    } else {
+      return mainMapper.getExamMetaListByUserid(userid);
+
+    }
   }
 
   @GetMapping("/exam")
